@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PatientManagement.Domain.Users;
+
 public class User : AggregateRoot
 {
     public string FullName { get; private set; }

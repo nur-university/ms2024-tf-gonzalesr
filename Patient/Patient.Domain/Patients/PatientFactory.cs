@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PatientManagement.Domain.Shared;
 
 namespace PatientManagement.Domain.Patients
 {
     public class PatientFactory:IPatientFactory
     {
-        public Patient Create(Guid id, string name, DateTime birthDate, string gender, EmailValue email, List<Phone> phones)
+        public Patient Create(Guid id, string name, DateTime birthDate, string gender, EmailValue email)
         {
             if (id == Guid.Empty)
             {

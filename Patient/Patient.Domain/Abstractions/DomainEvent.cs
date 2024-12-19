@@ -1,15 +1,14 @@
 ﻿using MediatR;
 
-namespace PatientManagement.Domain.Abstractions
-{
-    public abstract record DomainEvent : INotification
+namespace PatientManagement.Domain.Abstractions;
+
+public abstract record DomainEvent : INotification
     {
         public Guid Id { get; set; }
-        public DateTime OccurredOn { get; private set; }       
-        protected DomainEvent()
+        public DateTime OccurredOn { get; set; }       
+        public DomainEvent()
         {
             Id = Guid.NewGuid();
-            OccurredOn = DateTime.UtcNow;
+            OccurredOn = DateTime.Now;
         }
     }
-}

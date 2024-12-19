@@ -9,7 +9,7 @@ namespace PatientManagement.Domain.Patients
 {
     public interface IPatientRepository : IRepository<Patient>
     {
-        Task UpdateAsync(EmailValue email);
+        Task UpdateAsync(Patient patient);
         Task DeleteAsync(Guid id);
     }
 }

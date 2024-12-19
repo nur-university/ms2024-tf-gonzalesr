@@ -9,6 +9,7 @@ namespace PatientManagement.Domain.Abstractions
     public abstract class Entity
     {
         public Guid Id { get; protected set; }
+        
         public List<DomainEvent> _domainEvents;
         public ICollection<DomainEvent> DomainEvents
         {

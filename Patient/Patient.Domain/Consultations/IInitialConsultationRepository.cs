@@ -1,5 +1,5 @@
 ﻿using PatientManagement.Domain.Abstractions;
-using PatientMangement.Domain.Consultations;
+using PatientManagement.Domain.Consultations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace PatientManagement.Domain.Consultations
 {
     public interface IInitialConsultationRepository: IRepository<InitialConsultation>
     {
-        Task<IEnumerable<InitialConsultation>> GetByPatientIdAsync(Guid patientId);
-        Task<IEnumerable<InitialConsultation>> GetByDateAsync(DateTime date);
+        Task UpdateAsync(InitialConsultation initialConsultation);
+        Task DeleteAsync(Guid id);
     }
 }

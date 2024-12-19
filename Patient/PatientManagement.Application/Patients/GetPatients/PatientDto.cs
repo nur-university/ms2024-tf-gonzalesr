@@ -1,5 +1,4 @@
-﻿using PatientManagement.Domain.Patients;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +12,7 @@ namespace PatientManagement.Application.Patients.GetPatients
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
         public string Gender { get; set; }
-        public EmailValue Email { get; set; }
-        public List<Phone> Phones { get; set; }
+        public string Email { get; set; }
+        public List<string> Phones { get; set; }
     }
 }

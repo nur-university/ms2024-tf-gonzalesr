@@ -1,4 +1,5 @@
 ﻿using PatientManagement.Domain.Abstractions;
+using PatientManagement.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,22 @@ namespace PatientManagement.Domain.Evaluations
         public Guid PatientId { get; private set; }
         public DateTime Date { get; private set; }
         public string EvaluationNotes { get; private set; }
-        public HealthMetrics Metrics { get; private set; }
+        public WeightValue Weight { get; private set; }
+        public HeightValue Height { get; private set; }
+        public BloodPressureValue BloodPressure { get; private set; }
+        public HeartRateValue HeartRate { get; private set; }
 
-        public PeriodicEvaluation(Guid id, Guid patientId, DateTime date, string evaluationNotes, HealthMetrics metrics) : base(id)
+
+
+        public PeriodicEvaluation(Guid id, Guid patientId, DateTime date, string evaluationNotes, WeightValue weight, HeightValue height, BloodPressureValue bloodPressure, HeartRateValue heartRate) : base(id)
         {
             PatientId = patientId;
             Date = date;
             EvaluationNotes = evaluationNotes ?? throw new ArgumentNullException(nameof(evaluationNotes));
-            Metrics = metrics ?? throw new ArgumentNullException(nameof(metrics));
+            Weight = weight;
+            Height = height;
+            BloodPressure = bloodPressure;
+            HeartRate = heartRate;
         }
         public void UpdateEvaluationNotes(string evaluationNotes)
         {
@@ -28,9 +37,6 @@ namespace PatientManagement.Domain.Evaluations
 
             EvaluationNotes = evaluationNotes;
         }
-        public void UpdateMetrics(HealthMetrics metrics)
-        {
-            Metrics = metrics ?? throw new ArgumentNullException(nameof(metrics));
-        }
+        private PeriodicEvaluation() { }
     }
 }

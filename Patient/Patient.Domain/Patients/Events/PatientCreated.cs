@@ -15,7 +15,5 @@ namespace PatientManagement.Domain.Patients.Events
         {
             PatientId = patientId;
         }
-
-
     }
 }

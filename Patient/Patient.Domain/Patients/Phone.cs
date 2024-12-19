@@ -16,6 +16,7 @@ namespace PatientManagement.Domain.Patients
         {
             Number = number;
         }
+        public Guid PatientId { get; private set; }
         public Phone(string number)
         {
             if (string.IsNullOrWhiteSpace(number))
@@ -23,6 +24,18 @@ namespace PatientManagement.Domain.Patients
 
             Number = number;
         }
+
+        internal Phone(Guid id, Guid patientId, string number)
+        {
+            if (id == Guid.Empty) throw new ArgumentException("Id cannot be empty", nameof(id));
+            if (patientId == Guid.Empty) throw new ArgumentException("PatientId cannot be empty", nameof(patientId));
+            if (string.IsNullOrEmpty(number)) throw new ArgumentException("Number cannot be empty", nameof(number));
+
+            Id = id;
+            PatientId = patientId;
+            Number = number;
+        }
+
         //Need for EF Core
         private Phone() { }
 

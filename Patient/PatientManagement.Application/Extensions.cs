@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using PatientManagement.Domain.Transactions;
+﻿
 using PatientManagement.Domain.Patients;
+using PatientManagement.Domain.Consultations;
+using PatientManagement.Domain.Evaluations;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,8 @@ namespace PatientManagement.Application
 
 
             services.AddSingleton<IPatientFactory, PatientFactory>();
-
+            services.AddSingleton<IInitialConsultationFactory, InitialConsultationFactory>();
+            services.AddSingleton<IPeriodicEvaluationFactory, PeriodicEvaluationFactory>();
 
             return services;
         }

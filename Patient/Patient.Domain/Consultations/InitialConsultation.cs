@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatientMangement.Domain.Consultations
+namespace PatientManagement.Domain.Consultations
 {
     public class InitialConsultation: AggregateRoot
     {
@@ -23,13 +23,6 @@ namespace PatientMangement.Domain.Consultations
             Observations = observations ?? throw new ArgumentNullException(nameof(observations));
         }
 
-        // Método para actualizar las observaciones
-        public void UpdateObservations(string observations)
-        {
-            if (string.IsNullOrWhiteSpace(observations))
-                throw new ArgumentException("Las observaciones no pueden estar vacías.", nameof(observations));
-
-            Observations = observations;
-        }
+        private InitialConsultation() : base() { }
     }
 }
